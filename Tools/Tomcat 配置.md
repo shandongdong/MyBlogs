@@ -17,5 +17,5 @@
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>```
-	3. [访问：http://localhost:8080/test/ ](http://localhost:8080/test/ )
+	3.  [访问：http://localhost:8080/test/ ](http://localhost:8080/test/ )
 
