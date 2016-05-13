@@ -201,6 +201,5 @@ public class AjaxServlet extends HttpServlet
 		System.out.println("doPost invoked!");
 		this.process(req, resp);
 	}
-
 }
 ```
