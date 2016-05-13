@@ -1,7 +1,7 @@
-#Ajax(Asynchronous JavaScript And XML)<font color=#FF0000>异步</font>的JavaScript与XML
+#Ajax(Asynchronous JavaScript And XML)的JavaScript与XML
 * Ajax中的一个重要对象是 XMLHttpRequest。
-##Ajax异步请求数据例子：
-创建一个页面
+* ##Ajax异步请求数据例子：
+* 创建一个页面
 ```html
 <!DOCTYPE html>
 <html>
