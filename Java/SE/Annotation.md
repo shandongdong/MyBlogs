@@ -1,5 +1,5 @@
 ﻿### Annotation 工作方式
-    功能： 允许开发者定义、使用自己的annotation类型。此功能由一个定义annotation类型。此功能由一个定义annotation 类型的语法和一个描述annotation 声明的语法，读取annotation的API，一个使用annotation的API，一个使用annotation修饰的class文件，一个annotation处理工具（apt）组成。
+    功能： 允许开发者定义、使用自己的annotation类型。此功能由一个定义annotation类型。此功能由一个定义annotation类型的语法和一个描述annotation 声明的语法，读取annotation的API，一个使用annotation的API，一个使用annotation修饰的class文件，一个annotation处理工具（apt）组成。
 ### 使用系统自带注解
     Override 注解： 表示子类需要重写（override）父类对应方法 。
     Deprecated注解： 表示方法是不建议被使用的。
@@ -39,7 +39,7 @@ public class AnnotationUsage {
 	}
 }
 ```
-## JDK提供的核注解
+## JDK提供的重要注解
 1. @Retention注解，用于告诉**编译器**如何处理用户自定义的注解。
 * 默认编译器会将Annotation 信息留在.class文件中，但是不会被虚拟机读取，而仅用于编译程序或者工具程序运行时提供信息。
 * 在使用Retention类型时，需要提供java.lang.annotation.RetentionPoliy的枚举形态。
