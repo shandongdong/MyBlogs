@@ -1,4 +1,4 @@
-# Servlet Filter（过滤器）
+# Servlet Filter（过滤器）、 EL（Expression Language）、tag lib
 ## 概念
     能够对Servlet容器的请求和响应对象进行检查和修改。
 ## 作用
@@ -15,5 +15,63 @@
     3. destory()：Servlet容器在销毁过滤器实例前调用该方法。
 其中最重的是doFilter()方法，该方法中的FilterChain过滤链的含义是“Filters use the FilterChain to invoke the next filter in the chain, or if the calling filter is the last filter in the chain, to invoke the resource at the end of the chain”
 ![过滤器的链式请求过程FilterChain](https://github.com/shandongdong/MyBlogs/blob/master/Java/Pictrue/%E8%BF%87%E6%BB%A4%E5%99%A8%E9%93%BE%E4%BD%9C%E7%94%A8.png?raw=true)
+
+### 使用方式
+    直接在web.xml中配置即可使用，Web容器（Tomcat）在启动时会先去解析过滤器。
+
+## EL 表达式语言 Expression Language
+* 目的：EL的出现是为了减少在JSP中编写Java代码，可以简化代码。
+* 语法：${expr}
+* EL隐含对象：pageContext、pageScope、requestScope、sessionScope、applicationScope、param、paramContext、header、headerValues、cookie。
+* 例子:新建2个jsp页面.
+    el1.jsp:注意删掉 <base href="<%=basePath%>">
+```html
+  <body>
+     <form action="el2.jsp">
+     	username:<input type="text" name="username" />
+     
+     	<input type="submit" value="submit" />
+     </form>
+     
+     <% session.setAttribute("hello", "world"); %>
+       
+  </body>
+```
+    el2.jsp
+```html
+  <body>
+ 	 <!-- 以前写法 -->
+    <%= request.getParameter("username") %>
+    <%= session.getAttribute("hello") %>
+    <br/>
+    <!-- 使用EL表达式的写法 -->
+    ${ param.username } <br/>
+    ${ sessionScope.hello } 
+  </body>
+```
+## TagLib
+* 自定义标签属性可以包含自定义属性，例如：<prefix:mytag **username="zhangsan"**>......</prefix:mytag>
+* **在标签处理类中应该将这个属性作为成员变量，并且分别提供设置和读取属性的方法**，假定以上username为String类型，可以定义如下方法：
+```java
+    private String username;
+    
+	public String getUsername()
+	{
+		return username;
+	}
+	public void setUsername(String username)
+	{
+		this.username = username;
+	}
+```
+
+
+
+
+
+
+
+
+
 
 
